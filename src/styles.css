@@ -1,0 +1,90 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.table-main-card {
+  border-radius: 10px;
+  box-shadow: 0px 5px 6px #d4ecee;
+  border: solid 1px #d4ecee;
+  margin: 6px 15px 15px 15px;
+  background-color: #fff;
+}
+
+.table-main-card-header {
+  padding: 13px 16px 0 32px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 8%);
+  background-color: #59d0da;
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+}
+
+.table-main-cart-body {
+  padding: 0 0 40px 20px;
+  height: 500px;
+  width: 99.8%;
+  margin-bottom: 15px;
+}
+
+.inline-form-control {
+  border: none !important;
+  font-size: 15px;
+}
+
+  .inline-form-control:focus {
+    border-color: #d4ecee;
+    box-shadow: none !important;
+  }
+
+.mat-table .mat-cell {
+  min-height: 60px;
+  border-top: 0.5px solid rgba(0,0,0,.12);
+  border-bottom: 0.5px solid rgba(0,0,0,.12);
+  border-right: 0.5px solid rgba(0,0,0,.12);
+}
+
+.mat-column-sno {
+  flex: 0 0 8%;
+}
+
+.mat-column-product {
+  flex: 0 0 15%;
+}
+
+.mat-column-price {
+  flex: 0 0 10%;
+}
+
+.mat-column-quantity {
+  flex: 0 0 10%;
+}
+
+.mat-column-total {
+  flex: 0 0 10%;
+}
+
+.mat-column-sgst {
+  flex: 0 0 10%;
+}
+
+.mat-column-cgst {
+  flex: 0 0 10%;
+}
+
+.form-control:disabled, .form-control[readonly] {
+   background-color: #fff; 
+   opacity: 1;
+}
+
+.mat-header-cell {
+  font-size: 15px !important;
+  font-weight: 500;
+}
+
+.totalPrice {
+  font-size: 15px;
+}
+
