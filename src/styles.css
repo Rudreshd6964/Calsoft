@@ -23,7 +23,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .table-main-cart-body {
-  padding: 0 0 40px 20px;
+  padding: 0 0 100% 20px;
   height: 500px;
   width: 99.8%;
   margin-bottom: 15px;
@@ -88,3 +88,15 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   font-size: 15px;
 }
 
+.btn-paytm {
+  background-color: #59d0da !important;
+  border: aliceblue !important;
+  height: 10% !important;
+  width: 12% !important;
+  text-align: center !important;
+  border-radius: 12px !important;
+}
+
+/*.mat-header-cell {
+  color: rgb(184 23 23 / 54%) !important;
+}*/

@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon'
 
 const MaterialComponents = [
   MatInputModule,
@@ -14,7 +15,8 @@ const MaterialComponents = [
   ReactiveFormsModule,
   MatPaginatorModule,
   CdkTableModule,
-  MatAutocompleteModule
+  MatAutocompleteModule,
+  MatIconModule
 ]
 
 @NgModule({

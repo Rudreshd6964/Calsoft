@@ -1,0 +1,98 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-12 col-md-12 col-xl-12">     
+      <div class="table-main-card">
+        <div class="table-main-card-header">
+          <h3 class="table-header-title"> Billing </h3>
+        </div>
+        <div class="table-main-cart-body">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-xl-12">
+
+              <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                <ng-container matColumnDef=" ">
+                  <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                  <mat-cell *matCellDef="let row; let rIndex = index;">
+                    {{rIndex + 1}}
+                  </mat-cell>
+                  <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+                </ng-container>
+
+                <ng-container cdkColumnDef="product">
+                  <mat-header-cell *matHeaderCellDef> Product </mat-header-cell>
+                  <mat-cell *cdkCellDef="let element ; let rIndex = index;">
+                    <input type="text" placeholder="Select Product" [formControl]="myControl" [matAutocomplete]="auto" class="form-control inline-form-control">
+                    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="onProductType($event,element)">
+                      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                        {{option.name}}
+                      </mat-option>
+                    </mat-autocomplete>
+                  </mat-cell>
+                  <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+                </ng-container>
+
+                <ng-container cdkColumnDef="cgst">
+                  <mat-header-cell *matHeaderCellDef> CGST </mat-header-cell>
+                  <mat-cell *cdkCellDef="let element ; let rIndex = index;">
+                    <input type="text" placeholder="Cgst" disabled [(ngModel)]="element.prodcgst" class="form-control inline-form-control">
+                  </mat-cell>
+                  <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+                </ng-container>
+
+                <ng-container cdkColumnDef="sgst">
+                  <mat-header-cell *matHeaderCellDef> SGST </mat-header-cell>
+                  <mat-cell *cdkCellDef="let element ; let rIndex = index;">
+                    <input type="text" placeholder="Sgst" disabled [(ngModel)]="element.prodsgst" class="form-control inline-form-control">
+                  </mat-cell>
+                  <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+                </ng-container>
+
+                <ng-container cdkColumnDef="price">
+                  <mat-header-cell *matHeaderCellDef> Price </mat-header-cell>
+                  <mat-cell *cdkCellDef="let element ; let rIndex = index;">
+                    <input type="number" placeholder="Price" disabled [(ngModel)]="element.prodprice" class="form-control inline-form-control">
+                  </mat-cell>
+                  <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+                </ng-container>
+
+                <ng-container cdkColumnDef="quantity">
+                  <mat-header-cell *matHeaderCellDef> Quantity </mat-header-cell>
+                  <mat-cell *cdkCellDef="let element ; let rIndex = index;">
+                    <input type="text" placeholder="Enter Quantity" (keyup)="RowQuantity(element)" (keyup.enter)="addRow(rIndex)" [(ngModel)]="element.prodquantity" class="form-control inline-form-control">
+                  </mat-cell>
+                  <mat-footer-cell *matFooterCellDef></mat-footer-cell>
+                </ng-container>
+
+
+                <ng-container cdkColumnDef="total">
+                  <mat-header-cell *matHeaderCellDef> Total </mat-header-cell>
+                  <mat-cell *cdkCellDef="let element ; let rIndex = index;">
+                    <input type="number" placeholder="Total" disabled [(ngModel)]="element.prodtotal" class="form-control inline-form-control">
+                  </mat-cell>
+
+                  <mat-footer-cell *matFooterCellDef>
+                    <span class="totalPrice" *ngIf="grandSubTotal"> Total: {{ grandSubTotal }} </span>
+                  </mat-footer-cell>
+
+                </ng-container>
+
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                <mat-footer-row class="sticky-footer" *matFooterRowDef="displayedColumns"></mat-footer-row>
+              </mat-table>
+
+              <mat-paginator [pageSizeOptions]="[10, 15, 20]"
+                             showFirstLastButtons
+                             aria-label="Select page of periodic elements">
+              </mat-paginator>
+
+              <!--<script type="application/javascript" crossorigin="anonymous" src="{HOST}/merchantpgpui/checkoutjs/merchants/{MID}.js" onload="onScriptLoad();"> </script>-->
+              <button class="btn-paytm" (click)="onScriptLoad()"> Paytm </button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
